@@ -46,7 +46,7 @@ class _WashingMachineUpdatesScreenState
     return Scaffold(
       appBar: AppBar(
         title: Text('Washing Machine Updates'),
-        backgroundColor: Colors.green,
+        backgroundColor: Color.fromARGB(255, 138, 106, 158),
       ),
       body: Column(
         children: [
