@@ -10,7 +10,6 @@ import 'package:bhm/warden/room_allocation.dart';
 import 'package:bhm/warden/warden_dashboard.dart';
 import 'package:bhm/warden/warden_login.dart';
 import 'package:flutter/material.dart';
-// Include if UserTypeSelectionScreen is in main.dart
 
 final Map<String, WidgetBuilder> appRoutes = {
   '/': (context) => UserTypeSelectionScreen(),
