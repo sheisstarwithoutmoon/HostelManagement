@@ -17,7 +17,6 @@ class Complaint {
     status = newStatus;
   }
 
-  // CopyWith method
   Complaint copyWith({
     String? title,
     String? description,
