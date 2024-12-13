@@ -16,8 +16,8 @@ class StudentDashboardScreen extends StatelessWidget {
           children: [
             _buildDashboardCard(
               context,
-              icon: Icons.local_laundry_service, // Washing machine icon
-              title: 'Washing Machine Updates', // Updated title
+              icon: Icons.local_laundry_service, 
+              title: 'Washing Machine Updates',
               onTap: () => Navigator.pushNamed(context, '/washing-machine-community'),
             ),
             _buildDashboardCard(
@@ -28,9 +28,9 @@ class StudentDashboardScreen extends StatelessWidget {
             ),
             _buildDashboardCard(
               context,
-              icon: Icons.report_problem, // New icon for complaints
-              title: 'Complaints', // New title
-              onTap: () => Navigator.pushNamed(context, '/complaints'), // New route for complaints
+              icon: Icons.report_problem, 
+              title: 'Complaints', 
+              onTap: () => Navigator.pushNamed(context, '/complaints'), 
             ),
           ],
         ),
