@@ -21,7 +21,6 @@ class _ViewAnnouncementsScreenState extends State<ViewAnnouncementsScreen> {
       'content': 'First four Washrooms will be closed for renovation starting next week. Please make alternative arrangements.',
       'date': '2024-12-11 10:00',
     },
-    // Add more sample announcements here
   ];
 
   @override
