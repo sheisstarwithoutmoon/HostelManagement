@@ -4,7 +4,6 @@ import 'package:bhm/widget/user_model.dart';
 class Warden extends User {
   final String hostelName;
 
-  // Constructor
   Warden({
     required String name,
     required String email,
