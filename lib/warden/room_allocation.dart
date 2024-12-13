@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:bhm/warden/room_deets.dart';
 import 'package:bhm/widget/student.dart';
 
-// Import the global students list
 import 'package:bhm/data/student_data.dart';  // This file holds the students list
 
 class RoomManagementScreen extends StatelessWidget {
@@ -39,20 +38,16 @@ class RoomManagementScreen extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
             
-            // Submit Button to search the student
             ElevatedButton(
               onPressed: () {
                 String rollNumber = rollNumberController.text.trim();
                 String name = nameController.text.trim();
-
-                // Use firstWhere and handle case where student is not found
+                
                 try {
-                  // Look for student by roll number and name
                   Student foundStudent = students.firstWhere(
                     (student) => student.roll_no == rollNumber && student.name == name,
                   );
 
-                  // Navigate to StudentRoomDetailsScreen if student is found
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -63,7 +58,6 @@ class RoomManagementScreen extends StatelessWidget {
                     ),
                   );
                 } catch (e) {
-                  // Show error if student not found
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Student not found or incorrect details!')),
                   );
