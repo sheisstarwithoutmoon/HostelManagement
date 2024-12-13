@@ -8,21 +8,18 @@ class ComplaintBoxScreen extends StatefulWidget {
 }
 
 class _ComplaintBoxScreenState extends State<ComplaintBoxScreen> {
-  // Using the complaints from ComplaintData
   List<Complaint> complaints = ComplaintData.complaints;
 
-  // Method to change the complaint status to 'Resolved'
   void markComplaintAsResolved(int index) {
     setState(() {
-      complaints[index].updateStatus('Resolved'); // Change the status to 'Resolved'
+      complaints[index].updateStatus('Resolved');
     });
-    // Show confirmation message for marking as Resolved
+    
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Complaint marked as Resolved')),
     );
   }
 
-  // Method to change the complaint status to 'Pending'
   void markComplaintAsPending(int index) {
     setState(() {
       complaints[index].updateStatus('Pending'); // Change the status to 'Pending'
@@ -38,16 +35,16 @@ class _ComplaintBoxScreenState extends State<ComplaintBoxScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Complaint Management'),
-        backgroundColor: Color.fromARGB(255, 138, 106, 158), // App bar color
+        backgroundColor: Color.fromARGB(255, 138, 106, 158),
       ),
-      body: SingleChildScrollView( // Allows scrolling when the keyboard appears
+      body: SingleChildScrollView( 
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Display posted complaints
+            
             ListView.builder(
-              shrinkWrap: true,  // Allows the list to be scrollable without taking too much space
+              shrinkWrap: true,  
               itemCount: complaints.length,
               itemBuilder: (context, index) {
                 return Card(
@@ -98,8 +95,8 @@ class _ComplaintBoxScreenState extends State<ComplaintBoxScreen> {
                             ),
                           )
                         : complaints[index].status == 'Resolved'
-                            ? null // No button if the complaint is already "Resolved"
-                            : null, // No button if the complaint is already "Pending"
+                            ? null 
+                            : null,
                   ),
                 );
               },
