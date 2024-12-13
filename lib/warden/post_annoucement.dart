@@ -9,22 +9,18 @@ class _PostAnnouncementsScreenState extends State<PostAnnouncementsScreen> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController contentController = TextEditingController();
 
-  // List of hostels to select from
   final List<String> hostels = ['BH-1', 'BH-2', 'BH-3', 'BH-4'];
 
   String selectedHostel = 'BH-1'; // Default selection
 
-  // List to store announcements
   List<Map<String, String>> announcements = [];
 
-  // Method to post the announcement
   void postAnnouncement() {
     String title = titleController.text.trim();
     String content = contentController.text.trim();
 
     if (title.isNotEmpty && content.isNotEmpty) {
       setState(() {
-        // Add the new announcement to the list
         announcements.add({
           'hostel': selectedHostel,
           'title': title,
@@ -33,16 +29,13 @@ class _PostAnnouncementsScreenState extends State<PostAnnouncementsScreen> {
         });
       });
 
-      // Clear the text fields after posting
       titleController.clear();
       contentController.clear();
 
-      // Show confirmation message
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Announcement posted successfully for $selectedHostel!')),
       );
     } else {
-      // Show error message if title or content is empty
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Please fill in both title and content!')),
       );
@@ -55,7 +48,7 @@ class _PostAnnouncementsScreenState extends State<PostAnnouncementsScreen> {
       appBar: AppBar(
         title: Text('Post Announcement'),
       ),
-      resizeToAvoidBottomInset: true, // Ensures UI adjusts when keyboard appears
+      resizeToAvoidBottomInset: true,
       body: SingleChildScrollView( // Allows scrolling when the keyboard appears
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -86,7 +79,6 @@ class _PostAnnouncementsScreenState extends State<PostAnnouncementsScreen> {
             ),
             SizedBox(height: 20),
 
-            // Title input field
             TextField(
               controller: titleController,
               decoration: InputDecoration(
@@ -96,7 +88,6 @@ class _PostAnnouncementsScreenState extends State<PostAnnouncementsScreen> {
             ),
             SizedBox(height: 20),
 
-            // Content input field
             TextField(
               controller: contentController,
               decoration: InputDecoration(
@@ -107,7 +98,6 @@ class _PostAnnouncementsScreenState extends State<PostAnnouncementsScreen> {
             ),
             SizedBox(height: 20),
 
-            // Button to post announcement
             ElevatedButton(
               onPressed: postAnnouncement,
               child: Text('Post Announcement'),
@@ -119,9 +109,8 @@ class _PostAnnouncementsScreenState extends State<PostAnnouncementsScreen> {
             ),
             SizedBox(height: 20),
 
-            // Display posted announcements
             ListView.builder(
-              shrinkWrap: true,  // Allows the list to be scrollable without taking too much space
+              shrinkWrap: true,  
               itemCount: announcements.length,
               itemBuilder: (context, index) {
                 return Card(
