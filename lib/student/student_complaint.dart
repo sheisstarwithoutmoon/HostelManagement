@@ -9,25 +9,20 @@ class _PostComplaintScreenState extends State<PostComplaintScreen> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController contentController = TextEditingController();
 
-  // List of hostels to select from
   final List<String> hostels = ['BH-1', 'BH-2', 'BH-3', 'BH-4'];
 
-  String selectedHostel = 'BH-1'; // Default selection
+  String selectedHostel = 'BH-1'; // Default 
 
-  // List to store complaints
   List<Map<String, String>> complaints = [];
 
-  // Simulated role of the user (change to 'warden' for warden)
-  String role = 'student'; // Set to 'warden' to simulate the warden's role
+  String role = 'student';
 
-  // Method to post the complaint
   void postComplaint() {
     String title = titleController.text.trim();
     String content = contentController.text.trim();
 
     if (title.isNotEmpty && content.isNotEmpty) {
       setState(() {
-        // Add the new complaint to the list with default 'Pending' status
         complaints.add({
           'hostel': selectedHostel,
           'title': title,
@@ -37,29 +32,26 @@ class _PostComplaintScreenState extends State<PostComplaintScreen> {
         });
       });
 
-      // Clear the text fields after posting
       titleController.clear();
       contentController.clear();
 
-      // Show confirmation message
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Complaint posted successfully!')),
       );
     } else {
-      // Show error message if title or content is empty
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Please fill in both title and content!')),
       );
     }
   }
 
-  // Method to change status of complaint (for warden only)
+  
   void changeComplaintStatus(int index) {
     setState(() {
-      // Change status to 'Resolved'
+    
       complaints[index]['status'] = 'Resolved';
     });
-    // Show confirmation message for status update
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Complaint marked as Resolved')),
     );
@@ -70,10 +62,10 @@ class _PostComplaintScreenState extends State<PostComplaintScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Post Complaint'),
-        backgroundColor: Color.fromARGB(255, 138, 106, 158), // Color representing complaints
+        backgroundColor: Color.fromARGB(255, 138, 106, 158), 
       ),
-      resizeToAvoidBottomInset: true, // Ensures UI adjusts when keyboard appears
-      body: SingleChildScrollView( // Allows scrolling when the keyboard appears
+      resizeToAvoidBottomInset: true,
+      body: SingleChildScrollView( // Allows scrolling 
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +95,7 @@ class _PostComplaintScreenState extends State<PostComplaintScreen> {
             ),
             SizedBox(height: 20),
 
-            // Title input field
+            
             TextField(
               controller: titleController,
               decoration: InputDecoration(
@@ -113,7 +105,7 @@ class _PostComplaintScreenState extends State<PostComplaintScreen> {
             ),
             SizedBox(height: 20),
 
-            // Content input field
+           
             TextField(
               controller: contentController,
               decoration: InputDecoration(
@@ -124,7 +116,7 @@ class _PostComplaintScreenState extends State<PostComplaintScreen> {
             ),
             SizedBox(height: 20),
 
-            // Button to post complaint
+            
             ElevatedButton(
               onPressed: postComplaint,
               child: Text('Post Complaint'),
@@ -136,9 +128,9 @@ class _PostComplaintScreenState extends State<PostComplaintScreen> {
             ),
             SizedBox(height: 20),
 
-            // Display posted complaints
+           
             ListView.builder(
-              shrinkWrap: true,  // Allows the list to be scrollable without taking too much space
+              shrinkWrap: true, 
               itemCount: complaints.length,
               itemBuilder: (context, index) {
                 return Card(
@@ -180,15 +172,15 @@ class _PostComplaintScreenState extends State<PostComplaintScreen> {
                     trailing: role == 'warden' && complaints[index]['status'] == 'Pending'
                         ? ElevatedButton(
                             onPressed: () {
-                              changeComplaintStatus(index); // Change status when button is pressed
+                              changeComplaintStatus(index); 
                             },
                             child: Text('Resolved'),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.green, // For the button background color
-                              foregroundColor: Colors.white,  // For the text color
+                              backgroundColor: Colors.green, 
+                              foregroundColor: Colors.white,  
                             ),
                           )
-                        : null, // No button if complaint is already resolved or if user is a student
+                        : null, 
                   ),
                 );
               },
