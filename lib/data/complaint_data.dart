@@ -1,4 +1,4 @@
-import 'package:bhm/widget/complaint_model.dart';
+import 'package:bhm/Models/complaint_model.dart';
 
 class ComplaintData {
   static final List<Complaint> complaints = [

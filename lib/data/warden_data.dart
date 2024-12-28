@@ -1,4 +1,4 @@
-import 'package:bhm/widget/warden.dart'; 
+import 'package:bhm/Models/warden_model.dart';
 
 // Warden data for BH-1
 Warden mahesh = Warden(

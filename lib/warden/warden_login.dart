@@ -1,6 +1,7 @@
 import 'package:bhm/data/warden_data.dart';
 import 'package:flutter/material.dart';
-import 'package:bhm/widget/warden.dart';  // Assuming this file is where Warden class is defined
+import 'package:bhm/Models/warden_model.dart'; // Assuming this file is where Warden class is defined
+
 class WardenLoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -13,7 +14,8 @@ class WardenLoginScreen extends StatelessWidget {
           padding: EdgeInsets.all(20.0),
           child: Card(
             elevation: 8,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Padding(
               padding: EdgeInsets.all(20.0),
               child: Column(
@@ -64,7 +66,8 @@ class WardenLoginScreen extends StatelessWidget {
 
                       if (loggedInWarden != null) {
                         // If the warden is found, navigate to the dashboard
-                        Navigator.pushReplacementNamed(context, '/warden-dashboard');
+                        Navigator.pushReplacementNamed(
+                            context, '/warden-dashboard');
                       } else {
                         // Show error if login fails
                         ScaffoldMessenger.of(context).showSnackBar(

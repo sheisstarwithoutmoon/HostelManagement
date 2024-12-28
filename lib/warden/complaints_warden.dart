@@ -1,6 +1,6 @@
 import 'package:bhm/data/complaint_data.dart';
 import 'package:flutter/material.dart';
-import 'package:bhm/widget/complaint_model.dart';
+import 'package:bhm/Models/complaint_model.dart';
 
 class ComplaintBoxScreen extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class _ComplaintBoxScreenState extends State<ComplaintBoxScreen> {
     setState(() {
       complaints[index].updateStatus('Resolved');
     });
-    
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Complaint marked as Resolved')),
     );
@@ -22,7 +22,8 @@ class _ComplaintBoxScreenState extends State<ComplaintBoxScreen> {
 
   void markComplaintAsPending(int index) {
     setState(() {
-      complaints[index].updateStatus('Pending'); // Change the status to 'Pending'
+      complaints[index]
+          .updateStatus('Pending'); // Change the status to 'Pending'
     });
     // Show confirmation message for marking as Pending
     ScaffoldMessenger.of(context).showSnackBar(
@@ -37,14 +38,13 @@ class _ComplaintBoxScreenState extends State<ComplaintBoxScreen> {
         title: Text('Complaint Management'),
         backgroundColor: Color.fromARGB(255, 138, 106, 158),
       ),
-      body: SingleChildScrollView( 
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             ListView.builder(
-              shrinkWrap: true,  
+              shrinkWrap: true,
               itemCount: complaints.length,
               itemBuilder: (context, index) {
                 return Card(
@@ -57,7 +57,8 @@ class _ComplaintBoxScreenState extends State<ComplaintBoxScreen> {
                     contentPadding: EdgeInsets.all(15),
                     title: Text(
                       complaints[index].title,
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,16 +87,18 @@ class _ComplaintBoxScreenState extends State<ComplaintBoxScreen> {
                     trailing: complaints[index].status == 'Pending'
                         ? ElevatedButton(
                             onPressed: () {
-                              markComplaintAsResolved(index); // Change status to 'Resolved'
+                              markComplaintAsResolved(
+                                  index); // Change status to 'Resolved'
                             },
                             child: Text('Mark as Resolved'),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.green, // Green for "Resolved"
+                              backgroundColor:
+                                  Colors.green, // Green for "Resolved"
                               foregroundColor: Colors.white,
                             ),
                           )
                         : complaints[index].status == 'Resolved'
-                            ? null 
+                            ? null
                             : null,
                   ),
                 );

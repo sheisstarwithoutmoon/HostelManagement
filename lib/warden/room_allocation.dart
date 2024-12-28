@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:bhm/warden/room_deets.dart';
-import 'package:bhm/widget/student.dart';
+import 'package:bhm/Models/student_model.dart';
 
-import 'package:bhm/data/student_data.dart';  // This file holds the students list
+import 'package:bhm/data/student_data.dart'; // This file holds the students list
 
 class RoomManagementScreen extends StatelessWidget {
   final TextEditingController rollNumberController = TextEditingController();
@@ -27,7 +27,7 @@ class RoomManagementScreen extends StatelessWidget {
               keyboardType: TextInputType.text,
             ),
             SizedBox(height: 16.0),
-            
+
             // TextField to enter Name
             TextField(
               controller: nameController,
@@ -37,15 +37,16 @@ class RoomManagementScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16.0),
-            
+
             ElevatedButton(
               onPressed: () {
                 String rollNumber = rollNumberController.text.trim();
                 String name = nameController.text.trim();
-                
+
                 try {
                   Student foundStudent = students.firstWhere(
-                    (student) => student.roll_no == rollNumber && student.name == name,
+                    (student) =>
+                        student.roll_no == rollNumber && student.name == name,
                   );
 
                   Navigator.push(
@@ -59,7 +60,9 @@ class RoomManagementScreen extends StatelessWidget {
                   );
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Student not found or incorrect details!')),
+                    SnackBar(
+                        content:
+                            Text('Student not found or incorrect details!')),
                   );
                 }
               },

@@ -1,4 +1,4 @@
-import 'package:bhm/widget/student.dart';
+import 'package:bhm/Models/student_model.dart';
 
 List<Student> students = [
   Student(
@@ -15,7 +15,7 @@ List<Student> students = [
     pass: "123456",
     hostel: "BH-1",
     room_no: "B-201",
-    roll_no: "S002", 
+    roll_no: "S002",
   ),
   Student(
     name: "David Lee",
@@ -23,7 +23,7 @@ List<Student> students = [
     pass: "123456",
     hostel: "BH-2",
     room_no: "A-305",
-    roll_no: "S003", 
+    roll_no: "S003",
   ),
   Student(
     name: "Emily Davis",
@@ -39,7 +39,7 @@ List<Student> students = [
     pass: "123456",
     hostel: "BH-4",
     room_no: "B-404",
-    roll_no: "S005", 
+    roll_no: "S005",
   ),
   Student(
     name: "Sarah Wilson",
@@ -47,7 +47,7 @@ List<Student> students = [
     pass: "123456",
     hostel: "BH-4",
     room_no: "C-203",
-    roll_no: "S006", 
+    roll_no: "S006",
   ),
   Student(
     name: "William Harris",
