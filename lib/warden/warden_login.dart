@@ -1,4 +1,6 @@
 import 'package:bhm/data/warden_data.dart';
+import 'package:bhm/forgot_pass_screen.dart';
+import 'package:bhm/warden/warden_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:bhm/Models/warden_model.dart'; // Assuming this file is where Warden class is defined
 
@@ -47,6 +49,27 @@ class WardenLoginScreen extends StatelessWidget {
                     obscureText: true,
                   ),
                   SizedBox(height: 20),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacementNamed(
+                            context, '/forgot-password');
+                        },
+                        child: Text(
+                          "Forgot Password?",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Color.fromARGB(255, 142, 99, 204),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       String email = emailController.text.trim();
@@ -82,6 +105,29 @@ class WardenLoginScreen extends StatelessWidget {
                     ),
                     child: Text('Login'),
                   ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Dont Have an Account? ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacementNamed(
+                            context, '/warden-signup');
+                        },
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 142, 99, 204),
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
