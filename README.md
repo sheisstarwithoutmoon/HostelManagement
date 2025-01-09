@@ -37,7 +37,6 @@ sheisstarwithoutmoon-HostelManagement/
 ## Technologies Used
 - **Frontend:** Flutter
 - **Backend:** FastAPI
-- **Database:** SQLite (or your preferred DBMS)
 
 ## Installation
 1. Clone the repository:
